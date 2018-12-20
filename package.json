@@ -10,7 +10,6 @@
     "start:dev-simpe": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
-    "prestart": "rimraf dist && tsc",
     "start": "node dist/main.js",
     "poststart": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "lint": "tslint -p tsconfig.json -c tslint.json",
