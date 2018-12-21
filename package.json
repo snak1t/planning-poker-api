@@ -11,7 +11,7 @@
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "start": "node dist/main.js",
-    "poststart": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migrate": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
