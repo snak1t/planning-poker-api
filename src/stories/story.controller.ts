@@ -10,8 +10,7 @@ import {
 } from '@nestjs/common';
 import { StoryService } from './story.service';
 import { CreateStoryDto } from './create-story.dto';
-import { UpdateDateColumn } from 'typeorm';
-import { UpdateGameDto } from 'src/game/update-game.dto';
+import { UpdateGameDto } from '../game/update-game.dto';
 
 @Controller('story')
 export class StoryController {

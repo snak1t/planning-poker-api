@@ -2,3 +2,4 @@ node_modules
 db_data
 .env
 env.env
+dist
