@@ -7,6 +7,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3100',
       'https://snaks-planning-poker.herokuapp.com',
+      'https://snak1t.github.io',
     ],
   });
   app.setGlobalPrefix('api');
