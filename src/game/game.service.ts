@@ -5,7 +5,7 @@ import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
 
 export type GameOverview = Pick<Game, Exclude<keyof Game, 'stories'>> & {
-  stories: number;
+  storiesCount: number;
 };
 
 @Injectable()
@@ -22,10 +22,11 @@ export class GamesService {
       },
     });
     return games.map(game => {
+      const { stories, ...otherFields } = game;
       const myGame = {
-        ...game,
-        isCompleted: game.stories.every(story => story.score !== 0),
-        stories: game.stories.length,
+        ...otherFields,
+        isCompleted: stories.every(story => story.score !== 0),
+        storiesCount: stories.length,
       };
       return myGame;
     });
