@@ -4,7 +4,7 @@ import { Repository, FindOneOptions } from 'typeorm';
 import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
 
-type GameOverview = Pick<Game, Exclude<keyof Game, 'stories'>> & {
+export type GameOverview = Pick<Game, Exclude<keyof Game, 'stories'>> & {
   stories: number;
 };
 

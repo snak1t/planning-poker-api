@@ -12,14 +12,16 @@ import {
 } from '@nestjs/common';
 import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
-import { GamesService } from './game.service';
+import { GamesService, GameOverview } from './game.service';
 
 @Controller('game')
 export class GamesController {
   constructor(private readonly gameService: GamesService) {}
 
   @Get('user/:user')
-  async findAll(@Param('user') user: string): Promise<{ games: Game[] }> {
+  async findAll(
+    @Param('user') user: string,
+  ): Promise<{ games: GameOverview[] }> {
     const games = await this.gameService.all(user);
     return {
       games,
