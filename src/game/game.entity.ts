@@ -16,4 +16,6 @@ export class Game {
 
   @OneToMany(type => Story, story => story.game)
   stories: Story[];
+
+  public isCompleted: boolean;
 }
