@@ -14,7 +14,7 @@ import {
 import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
 import { GamesService, GameOverview } from './game.service';
-import { UpdateGameDto } from 'dist/src/game/update-game.dto';
+import { UpdateGameDto } from './update-game.dto';
 
 @Controller('game')
 export class GamesController {
