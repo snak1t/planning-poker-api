@@ -9,10 +9,12 @@ import {
   Param,
   Delete,
   Query,
+  Put,
 } from '@nestjs/common';
 import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
 import { GamesService, GameOverview } from './game.service';
+import { UpdateGameDto } from 'dist/src/game/update-game.dto';
 
 @Controller('game')
 export class GamesController {
@@ -37,6 +39,16 @@ export class GamesController {
   async create(@Body() createGameDto: CreateGameDto) {
     try {
       const game = await this.gameService.save(createGameDto);
+      return { game };
+    } catch (error) {
+      return new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @Put()
+  async updateGame(@Body() updateGameDto: UpdateGameDto) {
+    try {
+      const game = await this.gameService.update(updateGameDto);
       return { game };
     } catch (error) {
       return new HttpException(error.message, HttpStatus.BAD_REQUEST);

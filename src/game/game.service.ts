@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, FindOneOptions } from 'typeorm';
 import { Game } from './game.entity';
 import { CreateGameDto } from './create-game.dto';
+import { UpdateGameDto } from './update-game.dto';
 
 export type GameOverview = Pick<Game, Exclude<keyof Game, 'stories'>> & {
   storiesCount: number;
@@ -42,6 +43,10 @@ export class GamesService {
     } catch (error) {
       throw new Error('Duplicate entry');
     }
+  }
+
+  async update(updateGameDto: UpdateGameDto) {
+    return await this.gameRepository.save(updateGameDto);
   }
 
   async remove(id: number): Promise<number> {
